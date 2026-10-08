@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Download YouTube songs as MP3 for Mac and Windows — ck-you3</title>
+    <meta name="description" content="Import your YouTube watch history, pick the songs you want and save them as MP3 files to a folder or USB drive. Free for Mac and Windows, no account." />
+    <link rel="canonical" href="https://ckandrinirina.github.io/ck-you3/" />
+    <link rel="alternate" hreflang="en" href="https://ckandrinirina.github.io/ck-you3/" />
+    <link rel="alternate" hreflang="fr" href="https://ckandrinirina.github.io/ck-you3/fr/" />
+    <link rel="alternate" hreflang="x-default" href="https://ckandrinirina.github.io/ck-you3/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ck-you3" />
+    <meta property="og:url" content="https://ckandrinirina.github.io/ck-you3/" />
+    <meta property="og:title" content="Download YouTube songs as MP3 for Mac and Windows — ck-you3" />
+    <meta property="og:description" content="Import your YouTube watch history, pick the songs you want and save them as MP3 files to a folder or USB drive. Free for Mac and Windows, no account." />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://ckandrinirina.github.io/ck-you3/assets/og-image-en.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/apple-touch-icon.png"
+    />
+    <link
+      rel="preload"
+      href="fonts/bricolage-grotesque-latin-700-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/hanken-grotesk-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="site.js"></script>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"ck-you3","description":"Import your YouTube watch history, pick the songs you want and save them as MP3 files to a folder or USB drive. Free for Mac and Windows, no account.","url":"https://ckandrinirina.github.io/ck-you3/","image":"https://ckandrinirina.github.io/ck-you3/assets/og-image-en.png","inLanguage":"en","operatingSystem":"macOS, Windows","applicationCategory":"MultimediaApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":["https://github.com/ckandrinirina/ck-you3/releases/latest/download/ck-you3-mac.dmg","https://github.com/ckandrinirina/ck-you3/releases/latest/download/ck-you3-windows-setup.exe"],"author":{"@type":"Person","name":"ANDRINIRINA Erick","email":"ckandrinirina@gmail.com","sameAs":["https://github.com/ckandrinirina","https://www.linkedin.com/in/ckandrinirina"]}}
+    </script>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"Is ck-you3 free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is free to download and to use, with no account and no sign-in."}},{"@type":"Question","name":"Does my history leave my computer?","acceptedAnswer":{"@type":"Answer","text":"No. The file you import, the list you browse and the MP3s you save all stay on your computer. There is no account and no server."}},{"@type":"Question","name":"Where do I get my watch history?","acceptedAnswer":{"@type":"Answer","text":"From Google Takeout: select YouTube, choose JSON as the history format, and download the archive. The file to import is watch-history.json."}},{"@type":"Question","name":"What else do I need to install?","acceptedAnswer":{"@type":"Answer","text":"yt-dlp and ffmpeg. The app checks for both before the queue starts and, if one is missing, says how to get it — for example with Homebrew on a Mac or winget on Windows."}},{"@type":"Question","name":"Can it fill a USB stick for the car?","acceptedAnswer":{"@type":"Answer","text":"Yes. Plug the stick in, pick it as the destination, and start. Next time, songs already on the stick are skipped and only new ones are added."}},{"@type":"Question","name":"Is downloading from YouTube allowed?","acceptedAnswer":{"@type":"Answer","text":"That is between you and YouTube. ck-you3 ships no content and bypasses no protection, and it asks you to acknowledge YouTube's Terms of Service before the first download."}}]}
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="./" aria-label="ck-you3 home">
+          <img
+            class="brand__icon"
+            src="assets/icon.png"
+            alt="ck-you3 app icon"
+            width="32"
+            height="32"
+          />
+          <span class="brand__name"
+            >ck-<span class="wordmark__you">you</span
+            ><span class="wordmark__three">3</span></span
+          >
+        </a>
+        <nav class="topnav" aria-label="Main">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#faq">FAQ</a>
+          <a href="#about">About</a>
+        </nav>
+        <a
+          class="langswitch"
+          href="fr/"
+          hreflang="fr"
+          lang="fr"
+          >Français</a
+        >
+        <a class="topbar__cta" href="#download">Download</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow">Free for Mac and Windows</p>
+            <h1>Turn the songs you watched on YouTube into MP3s on your USB drive.</h1>
+            <p class="lead">Import your watch history, tick the tracks you want, and ck-you3 saves them as MP3 files to a folder or a USB stick it finds for you — skipping every song that is already there.</p>
+            <div
+              class="buttons"
+              role="group"
+              aria-label="Download ck-you3"
+            >
+              <a
+                class="button button--primary"
+                data-platform="mac"
+                href="https://github.com/ckandrinirina/ck-you3/releases/latest/download/ck-you3-mac.dmg"
+              >
+                <svg
+                  class="button__glyph"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M16.37 1c.1 1.17-.34 2.3-1.03 3.13-.72.86-1.86 1.52-2.98 1.43-.13-1.13.42-2.3 1.06-3.03C14.14 1.66 15.37 1.04 16.37 1Zm3.52 16.3c-.5 1.16-.75 1.67-1.4 2.7-.9 1.43-2.18 3.21-3.76 3.22-1.4.01-1.77-.92-3.67-.9-1.9 0-2.3.92-3.7.9-1.58-.01-2.79-1.62-3.7-3.05C1.13 16.18.87 11.48 2.48 9 3.62 7.23 5.43 6.2 7.13 6.2c1.73 0 2.82.95 4.25.95 1.39 0 2.23-.95 4.24-.95 1.51 0 3.11.82 4.25 2.25-3.73 2.05-3.13 7.38.02 8.85Z"
+                  />
+                </svg>
+                <span class="button__text">
+                  <span class="button__label">Download for Mac</span>
+                  <span class="button__meta">macOS · .dmg installer</span>
+                </span>
+              </a>
+              <a
+                class="button button--primary"
+                data-platform="windows"
+                href="https://github.com/ckandrinirina/ck-you3/releases/latest/download/ck-you3-windows-setup.exe"
+              >
+                <svg
+                  class="button__glyph"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M2 4.5 10 3.4v8.1H2V4.5Zm9.2-1.27L22 1.75V11.5H11.2V3.23ZM2 12.5h8v8.1l-8-1.1v-7Zm9.2 0H22v9.75l-10.8-1.48V12.5Z"
+                  />
+                </svg>
+                <span class="button__text">
+                  <span class="button__label">Download for Windows</span>
+                  <span class="button__meta">Windows · .exe installer</span>
+                </span>
+              </a>
+            </div>
+            <p class="hero__version">Current version: 0.2.0</p>
+            <p class="hero__requirements">Requires macOS 12 Monterey or later, or Windows 10 or later.</p>
+            <p class="hero__note">
+              <svg class="inline-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 3 4.5 6v5.5c0 4.6 3.1 8.4 7.5 9.5 4.4-1.1 7.5-4.9 7.5-9.5V6L12 3Z"
+                />
+                <path d="m8.8 12 2.2 2.2 4.2-4.4" />
+              </svg>
+              <span>Runs entirely on your computer. No account, no upload.</span>
+            </p>
+          </div>
+
+          <div class="mockup" aria-hidden="true">
+            <div class="mockup__window">
+              <div class="mockup__chrome">
+                <span class="mockup__dot"></span
+                ><span class="mockup__dot"></span
+                ><span class="mockup__dot"></span>
+                <span class="mockup__title">ck-you3</span>
+              </div>
+              <div class="mockup__search">
+                <svg class="inline-icon" viewBox="0 0 24 24">
+                  <circle cx="11" cy="11" r="6.5" />
+                  <path d="m20 20-4.2-4.2" />
+                </svg>
+                <span>Search your history</span>
+              </div>
+              <div class="mockup__tabs">
+                <span class="mockup__tab mockup__tab--active"
+                  >All</span
+                >
+                <span class="mockup__tab">Not downloaded</span>
+                <span class="mockup__tab">On your drive</span>
+              </div>
+              <ul class="mockup__rows">
+                <li class="mockup__row">
+                  <span class="mockup__check mockup__check--on"></span>
+                  <span class="mockup__thumb" style="--hue: 172"></span>
+                  <span class="mockup__name">Sunday morning acoustic set</span>
+                  <span class="chip chip--success">On your drive</span>
+                </li>
+                <li class="mockup__row mockup__row--selected">
+                  <span class="mockup__check mockup__check--on"></span>
+                  <span class="mockup__thumb" style="--hue: 205"></span>
+                  <span class="mockup__name">Late night lo-fi mix</span>
+                  <span class="chip chip--accent">Queued</span>
+                </li>
+                <li class="mockup__row mockup__row--selected">
+                  <span class="mockup__check mockup__check--on"></span>
+                  <span class="mockup__thumb" style="--hue: 150"></span>
+                  <span class="mockup__name">Road trip singalong</span>
+                  <span class="chip chip--accent">Queued</span>
+                </li>
+                <li class="mockup__row">
+                  <span class="mockup__check"></span>
+                  <span class="mockup__thumb" style="--hue: 188"></span>
+                  <span class="mockup__name">Live at the rooftop</span>
+                  <span class="chip">Not downloaded</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mockup__drive">
+              <svg class="mockup__drive-icon" viewBox="0 0 24 24">
+                <rect x="7" y="2.5" width="10" height="6" rx="1" />
+                <rect x="5" y="8.5" width="14" height="13" rx="2.5" />
+                <path d="M10 5h.01M14 5h.01" />
+              </svg>
+              <div class="mockup__drive-text">
+                <span class="mockup__drive-title">USB drive detected</span>
+                <span class="mockup__drive-name">MUSIC_STICK</span>
+                <span class="mockup__progress"
+                  ><span class="mockup__bar"></span
+                ></span>
+                <span class="mockup__drive-status">Downloading 2 of 3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <header class="section__head">
+            <h2>Everything between a watched video and a song on your stick</h2>
+            <p class="section__lead">ck-you3 does one job: it gets the music you already found on YouTube onto the drive you actually listen from.</p>
+          </header>
+          <ul class="cards">
+            <li class="card">
+              <span class="card__icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"
+                  />
+                  <path d="M14 3v5h5" />
+                  <path d="M12 17v-6m-2.5 2.5L12 11l2.5 2.5" /></svg
+              ></span>
+              <h3>Import your watch history</h3>
+              <p>Bring in the watch-history file from Google Takeout. Import again later and new videos are merged in, never duplicated.</p>
+            </li>
+            <li class="card">
+              <span class="card__icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="6.5" />
+                  <path d="m20 20-4.2-4.2" /></svg
+              ></span>
+              <h3>Find any song in seconds</h3>
+              <p>Search thousands of watched videos by title or channel, and filter to what is not downloaded yet or already on your drive.</p>
+            </li>
+            <li class="card">
+              <span class="card__icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 18V5l11-2v13" />
+                  <circle cx="6" cy="18" r="3" />
+                  <circle cx="17" cy="16" r="3" /></svg
+              ></span>
+              <h3>Real MP3 files</h3>
+              <p>Each track is extracted with yt-dlp and encoded to MP3 by ffmpeg — plain files that play in a car, a speaker or any music player.</p>
+            </li>
+            <li class="card">
+              <span class="card__icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="7" y="2.5" width="10" height="6" rx="1" />
+                  <rect x="5" y="8.5" width="14" height="13" rx="2.5" />
+                  <path d="M10 5h.01M14 5h.01M12 12.5v5m-2-2 2 2 2-2" /></svg
+              ></span>
+              <h3>Straight to your USB drive</h3>
+              <p>Plug in a USB stick and the app offers it as a destination. Or pick any folder on your computer instead.</p>
+            </li>
+            <li class="card">
+              <span class="card__icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="m8 12.2 2.8 2.8L16.5 9" /></svg
+              ></span>
+              <h3>Never the same song twice</h3>
+              <p>Songs already on the destination are recognised and skipped, so topping up a drive only adds what is new.</p>
+            </li>
+            <li class="card">
+              <span class="card__icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"
+                  />
+                  <circle cx="12" cy="12" r="3" /></svg
+              ></span>
+              <h3>Catches what you just watched</h3>
+              <p>Optionally, the app reads your browser&#39;s history in Chrome, Brave, Edge or Chromium and shows the videos you just played. Off until you turn it on.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="section section--tinted">
+        <div class="container">
+          <header class="section__head">
+            <h2>How it works</h2>
+            <p class="section__lead">Three steps, and the second time it is only the last one.</p>
+          </header>
+          <ol class="steps">
+            <li class="step">
+              <h3>Export your history</h3>
+              <p>Request your YouTube history from Google Takeout in JSON format, then import the watch-history file into ck-you3.</p>
+            </li>
+            <li class="step">
+              <h3>Pick your songs</h3>
+              <p>Search, filter and tick the tracks you want. The ones already on your drive are marked, so you only choose what is new.</p>
+            </li>
+            <li class="step">
+              <h3>Plug in and download</h3>
+              <p>Choose a folder or the USB drive the app detected, start the queue, and watch the MP3s land there one by one.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="download" class="section">
+        <div class="container">
+          <div class="download">
+            <img
+              class="download__icon"
+              src="assets/icon.png"
+              alt="ck-you3 app icon"
+              width="88"
+              height="88"
+            />
+            <h2>Get ck-you3</h2>
+            <p class="download__lead">Free, for Mac and Windows. The download comes straight from the latest release.</p>
+            <div class="buttons buttons--center">
+              <a
+                class="button button--light"
+                data-platform="mac"
+                href="https://github.com/ckandrinirina/ck-you3/releases/latest/download/ck-you3-mac.dmg"
+              >
+                <svg
+                  class="button__glyph"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M16.37 1c.1 1.17-.34 2.3-1.03 3.13-.72.86-1.86 1.52-2.98 1.43-.13-1.13.42-2.3 1.06-3.03C14.14 1.66 15.37 1.04 16.37 1Zm3.52 16.3c-.5 1.16-.75 1.67-1.4 2.7-.9 1.43-2.18 3.21-3.76 3.22-1.4.01-1.77-.92-3.67-.9-1.9 0-2.3.92-3.7.9-1.58-.01-2.79-1.62-3.7-3.05C1.13 16.18.87 11.48 2.48 9 3.62 7.23 5.43 6.2 7.13 6.2c1.73 0 2.82.95 4.25.95 1.39 0 2.23-.95 4.24-.95 1.51 0 3.11.82 4.25 2.25-3.73 2.05-3.13 7.38.02 8.85Z"
+                  />
+                </svg>
+                <span class="button__text">
+                  <span class="button__label">Download for Mac</span>
+                  <span class="button__meta">macOS · .dmg installer</span>
+                </span>
+              </a>
+              <a
+                class="button button--light"
+                data-platform="windows"
+                href="https://github.com/ckandrinirina/ck-you3/releases/latest/download/ck-you3-windows-setup.exe"
+              >
+                <svg
+                  class="button__glyph"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M2 4.5 10 3.4v8.1H2V4.5Zm9.2-1.27L22 1.75V11.5H11.2V3.23ZM2 12.5h8v8.1l-8-1.1v-7Zm9.2 0H22v9.75l-10.8-1.48V12.5Z"
+                  />
+                </svg>
+                <span class="button__text">
+                  <span class="button__label">Download for Windows</span>
+                  <span class="button__meta">Windows · .exe installer</span>
+                </span>
+              </a>
+            </div>
+            <p class="download__version">Current version: 0.2.0</p>
+            <p class="download__note">ck-you3 uses yt-dlp and ffmpeg. If either is missing, the app tells you before anything starts and shows how to install it.</p>
+            <div id="first-launch" class="firstlaunch">
+              <h3>First launch</h3>
+              <p class="firstlaunch__lead">ck-you3 is not signed with a paid Apple or Microsoft certificate yet, so your system asks you to confirm once, the first time you open it.</p>
+              <div class="firstlaunch__platforms">
+                <div class="firstlaunch__platform" data-platform-help="mac">
+                  <h4>On a Mac</h4>
+                  <ol>
+                    <li>Open the .dmg, drag ck-you3 into Applications and open it. macOS says it cannot verify the app — close that message.</li>
+                    <li>Open System Settings → Privacy &amp; Security (on macOS 12: System Preferences → Security &amp; Privacy), scroll down and click Open Anyway next to ck-you3.</li>
+                    <li>Confirm when macOS asks again. From then on, ck-you3 opens like any other app.</li>
+                  </ol>
+                </div>
+                <div class="firstlaunch__platform" data-platform-help="windows">
+                  <h4>On Windows</h4>
+                  <ol>
+                    <li>Run the installer. If a blue “Windows protected your PC” screen appears, click More info.</li>
+                    <li>Click Run anyway. The installer finishes and ck-you3 starts like any other app.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section">
+        <div class="container container--narrow">
+          <header class="section__head">
+            <h2>Questions</h2>
+          </header>
+          <div class="faq">
+            <details>
+              <summary>Is ck-you3 free?</summary>
+              <p>Yes. It is free to download and to use, with no account and no sign-in.</p>
+            </details>
+            <details>
+              <summary>Does my history leave my computer?</summary>
+              <p>No. The file you import, the list you browse and the MP3s you save all stay on your computer. There is no account and no server.</p>
+            </details>
+            <details>
+              <summary>Where do I get my watch history?</summary>
+              <p>From Google Takeout: select YouTube, choose JSON as the history format, and download the archive. The file to import is watch-history.json.</p>
+            </details>
+            <details>
+              <summary>What else do I need to install?</summary>
+              <p>yt-dlp and ffmpeg. The app checks for both before the queue starts and, if one is missing, says how to get it — for example with Homebrew on a Mac or winget on Windows.</p>
+            </details>
+            <details>
+              <summary>Can it fill a USB stick for the car?</summary>
+              <p>Yes. Plug the stick in, pick it as the destination, and start. Next time, songs already on the stick are skipped and only new ones are added.</p>
+            </details>
+            <details>
+              <summary>Is downloading from YouTube allowed?</summary>
+              <p>That is between you and YouTube. ck-you3 ships no content and bypasses no protection, and it asks you to acknowledge YouTube&#39;s Terms of Service before the first download.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container container--narrow">
+          <div class="about">
+            <h2>About the developer</h2>
+            <p class="about__name">ANDRINIRINA Erick</p>
+            <p class="about__role">Software developer, creator of ck-you3</p>
+            <p class="about__bio">ck-you3 is designed, built and maintained by a single independent developer. It is a personal project, with no company, advertising or tracking behind it. Questions, bug reports and suggestions are welcome by email.</p>
+            <ul class="about__links">
+              <li>
+                <a class="about__link" href="mailto:ckandrinirina@gmail.com"
+                  >Email</a
+                >
+              </li>
+              <li>
+                <a
+                  class="about__link"
+                  href="https://github.com/ckandrinirina"
+                  target="_blank"
+                  rel="me noopener"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  class="about__link"
+                  href="https://www.linkedin.com/in/ckandrinirina"
+                  target="_blank"
+                  rel="me noopener"
+                  >LinkedIn</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <img
+            class="brand__icon"
+            src="assets/icon.png"
+            alt="ck-you3 app icon"
+            width="28"
+            height="28"
+          />
+          <span class="brand__name"
+            >ck-<span class="wordmark__you">you</span
+            ><span class="wordmark__three">3</span></span
+          >
+        </div>
+        <p class="footer__tagline">Your YouTube watch history, as MP3s on your own drive.</p>
+        <p class="footer__terms">Downloading from YouTube is subject to YouTube&#39;s Terms of Service. Only download content you have the right to keep.</p>
+        <p class="footer__small">Fully local. Nothing you import or download is uploaded anywhere.</p>
+        <p class="footer__small">YouTube is a trademark of Google LLC. ck-you3 is not affiliated with or endorsed by Google.</p>
+      </div>
+    </footer>
+  </body>
+</html>
