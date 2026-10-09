@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>ck-you3 changelog — every release for Mac and Windows</title>
+    <meta name="description" content="What changed in each ck-you3 release, newest first: the new features, changes and fixes in the app that saves YouTube songs as MP3." />
+    <link rel="canonical" href="https://ckandrinirina.github.io/ck-you3/changelog/" />
+    <link rel="alternate" hreflang="en" href="https://ckandrinirina.github.io/ck-you3/changelog/" />
+    <link rel="alternate" hreflang="fr" href="https://ckandrinirina.github.io/ck-you3/fr/changelog/" />
+    <link rel="alternate" hreflang="x-default" href="https://ckandrinirina.github.io/ck-you3/changelog/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ck-you3" />
+    <meta property="og:url" content="https://ckandrinirina.github.io/ck-you3/changelog/" />
+    <meta property="og:title" content="ck-you3 changelog — every release for Mac and Windows" />
+    <meta property="og:description" content="What changed in each ck-you3 release, newest first: the new features, changes and fixes in the app that saves YouTube songs as MP3." />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://ckandrinirina.github.io/ck-you3/assets/og-image-en.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/favicon-32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/apple-touch-icon.png"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="../" aria-label="ck-you3 home">
+          <img
+            class="brand__icon"
+            src="../assets/icon.png"
+            alt="ck-you3 app icon"
+            width="32"
+            height="32"
+          />
+          <span class="brand__name"
+            >ck-<span class="wordmark__you"
+              >you</span
+            ><span class="wordmark__three">3</span></span
+          >
+        </a>
+        <a
+          class="langswitch"
+          href="../fr/changelog/"
+          hreflang="fr"
+          lang="fr"
+          >Français</a
+        >
+        <a class="topbar__cta" href="../#download">Download</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container container--narrow">
+          <header class="section__head">
+            <h1>Changelog</h1>
+            <p class="section__lead">Every ck-you3 release, newest first.</p>
+          </header>
+          <div class="releases"><article class="release" id="v0.4.0">
+<div class="release__head"><h2>v0.4.0</h2> <time datetime="2026-10-09">October 9, 2026</time></div>
+<h3>Added</h3>
+<ul>
+<li>On macOS, updates now install in place, like on Windows: the app downloads the new version, checks it, and swaps itself for it when you quit, then reopens. If the app cannot replace itself (for example when it runs from the disk image or from a folder you cannot write to), it falls back to downloading the installer and opening it for you.</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>When a new version is found, it now downloads in the background straight away. The update prompt shows the release notes and the download&#39;s progress, then offers &quot;Restart to update&quot; or &quot;Later&quot;, which installs it the next time you quit. &quot;Skip this version&quot; still works.</li>
+</ul>
+<h3>Fixed</h3>
+<ul>
+<li>The release notes in the update prompt are shown as formatted text instead of raw HTML.</li>
+</ul>
+<h3>Notes</h3>
+<ul>
+<li>Updating from 0.3.1 still uses the old flow: choose Update in the prompt. On macOS that downloads the installer and opens it. From 0.4.0 on, updates download and install by themselves.</li>
+</ul>
+<p>The installers are still not signed. On macOS, open the app once with right-click → Open (or System Settings → Privacy &amp; Security → &quot;Open anyway&quot;); on Windows, choose &quot;More info&quot; → &quot;Run anyway&quot;.</p>
+</article>
+<article class="release" id="v0.3.1">
+<div class="release__head"><h2>v0.3.1</h2> <time datetime="2026-10-09">October 9, 2026</time></div>
+<h3>Changed</h3>
+<ul>
+<li>The app is smaller to download and install. The macOS installer drops from about 221 MB to 206 MB, and the installed app from 522 MB to 465 MB. It now carries only the English and French language files and no longer bundles a second copy of its interface libraries and fonts.</li>
+</ul>
+<h3>Security</h3>
+<ul>
+<li>The installed app can no longer be started as a plain Node.js process or opened with a debugger, and it refuses to start if its bundled code has been altered.</li>
+<li>The app&#39;s own code is shipped minified, without source maps.</li>
+</ul>
+<p>The installers are still not signed. On macOS, open the app once with right-click → Open (or System Settings → Privacy &amp; Security → &quot;Open anyway&quot;); on Windows, choose &quot;More info&quot; → &quot;Run anyway&quot;.</p>
+</article>
+<article class="release" id="v0.3.0">
+<div class="release__head"><h2>v0.3.0</h2> <time datetime="2026-10-09">October 9, 2026</time></div>
+<h3>Added</h3>
+<ul>
+<li>An &quot;Install tools&quot; button: when yt-dlp or ffmpeg is missing, one click downloads and installs them into the app&#39;s own folder, with progress. yt-dlp is checked against its published checksums before it is used.</li>
+<li>Settings shows which yt-dlp the app uses, its version and where it came from, and can update a copy the app installed.</li>
+<li>The app now checks for new versions when it starts and every six hours. It shows what is new and lets you update now, later, or skip that version. Nothing is downloaded until you choose Update.</li>
+<li>Settings shows the running version and has a &quot;Check for updates&quot; button.</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>Tools you already installed, for example with Homebrew, are now found even when the app is opened from Finder or the Dock.</li>
+<li>yt-dlp is given a JavaScript runtime (deno) it can find. If deno is missing you get a warning, not an error.</li>
+</ul>
+<h3>Notes</h3>
+<ul>
+<li>Updating from 0.2.0 is manual this time: download this release from the site. From 0.3.0 on, the app offers new versions itself. On Windows it installs them in place; on macOS it downloads the new installer, checks it and opens it for you.</li>
+</ul>
+<p>The installers are still not signed. On macOS, open the app once with right-click → Open (or System Settings → Privacy &amp; Security → &quot;Open anyway&quot;); on Windows, choose &quot;More info&quot; → &quot;Run anyway&quot;.</p>
+</article>
+<article class="release" id="v0.2.0">
+<div class="release__head"><h2>v0.2.0</h2> <time datetime="2026-10-08">October 8, 2026</time></div>
+<h3>Added</h3>
+<ul>
+<li>Settings now ends with an About section: who makes ck-you3, the app version, and links to email, GitHub and LinkedIn that open in your browser.</li>
+</ul>
+<h3>Changed</h3>
+<ul>
+<li>A new app icon: a soundwave and a connected pulse on a dark tile, in the Dock, the Start menu and the taskbar.</li>
+<li>The app&#39;s top bar shows the same mark beside the CK-YOU3 wordmark.</li>
+</ul>
+<p>The installers are still not signed. On macOS, open the app once with right-click → Open (or System Settings → Privacy &amp; Security → &quot;Open anyway&quot;); on Windows, choose &quot;More info&quot; → &quot;Run anyway&quot;.</p>
+</article>
+<article class="release" id="v0.1.0">
+<div class="release__head"><h2>v0.1.0</h2> <time datetime="2026-10-07">October 7, 2026</time></div>
+<h3>Added</h3>
+<ul>
+<li>The first public release of ck-you3, for macOS (one universal DMG for Intel and Apple Silicon) and Windows.</li>
+<li>Import the watch history you exported from Google Takeout, then browse and search it.</li>
+<li>Pick tracks and save them as MP3 files to a folder, or to a USB drive the app detects.</li>
+<li>Everything stays on your computer: no account, no server, nothing uploaded.</li>
+</ul>
+<p>The installers are not signed yet. On macOS, open the app once with right-click → Open (or System Settings → Privacy &amp; Security → &quot;Open anyway&quot;); on Windows, choose &quot;More info&quot; → &quot;Run anyway&quot;.</p>
+</article></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <p class="footer__tagline">Your YouTube watch history, as MP3s on your own drive.</p>
+        <p class="footer__terms">Downloading from YouTube is subject to YouTube&#39;s Terms of Service. Only download content you have the right to keep.</p>
+        <p class="footer__small">YouTube is a trademark of Google LLC. ck-you3 is not affiliated with or endorsed by Google.</p>
+      </div>
+    </footer>
+  </body>
+</html>
