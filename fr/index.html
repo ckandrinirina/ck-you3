@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Convertir YouTube en MP3 sur Mac et Windows — ck-you3</title>
+    <meta name="description" content="Téléchargez en MP3 la musique de votre historique YouTube, dans un dossier ou sur une clé USB. Gratuit pour Mac et Windows, 100 % local, sans compte." />
+    <link rel="canonical" href="https://ckandrinirina.github.io/ck-you3/fr/" />
+    <link rel="alternate" hreflang="en" href="https://ckandrinirina.github.io/ck-you3/" />
+    <link rel="alternate" hreflang="fr" href="https://ckandrinirina.github.io/ck-you3/fr/" />
+    <link rel="alternate" hreflang="x-default" href="https://ckandrinirina.github.io/ck-you3/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ck-you3" />
+    <meta property="og:url" content="https://ckandrinirina.github.io/ck-you3/fr/" />
+    <meta property="og:title" content="Convertir YouTube en MP3 sur Mac et Windows — ck-you3" />
+    <meta property="og:description" content="Téléchargez en MP3 la musique de votre historique YouTube, dans un dossier ou sur une clé USB. Gratuit pour Mac et Windows, 100 % local, sans compte." />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:image" content="https://ckandrinirina.github.io/ck-you3/assets/og-image-fr.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/favicon-32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/apple-touch-icon.png"
+    />
+    <link
+      rel="preload"
+      href="../fonts/bricolage-grotesque-latin-700-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="../fonts/hanken-grotesk-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <script type="module" src="../site.js"></script>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"SoftwareApplication","name":"ck-you3","description":"Téléchargez en MP3 la musique de votre historique YouTube, dans un dossier ou sur une clé USB. Gratuit pour Mac et Windows, 100 % local, sans compte.","url":"https://ckandrinirina.github.io/ck-you3/fr/","image":"https://ckandrinirina.github.io/ck-you3/assets/og-image-fr.png","inLanguage":"fr","operatingSystem":"macOS, Windows","applicationCategory":"MultimediaApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"downloadUrl":["https://github.com/ckandrinirina/ck-you3/releases/latest/download/ck-you3-mac.dmg","https://github.com/ckandrinirina/ck-you3/releases/latest/download/ck-you3-windows-setup.exe"],"author":{"@type":"Person","name":"ANDRINIRINA Erick","email":"ckandrinirina@gmail.com","sameAs":["https://github.com/ckandrinirina","https://www.linkedin.com/in/ckandrinirina"]}}
+    </script>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"FAQPage","inLanguage":"fr","mainEntity":[{"@type":"Question","name":"ck-you3 est-il gratuit ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Il est gratuit à télécharger et à utiliser, sans compte ni connexion."}},{"@type":"Question","name":"Mon historique quitte-t-il mon ordinateur ?","acceptedAnswer":{"@type":"Answer","text":"Non. Le fichier que vous importez, la liste que vous parcourez et les MP3 que vous enregistrez restent sur votre ordinateur. Il n’y a ni compte ni serveur."}},{"@type":"Question","name":"Où récupérer mon historique YouTube ?","acceptedAnswer":{"@type":"Answer","text":"Sur Google Takeout : sélectionnez YouTube, choisissez JSON comme format de l’historique et téléchargez l’archive. Le fichier à importer s’appelle watch-history.json."}},{"@type":"Question","name":"Que faut-il installer en plus ?","acceptedAnswer":{"@type":"Answer","text":"yt-dlp et ffmpeg. L’application vérifie leur présence avant de lancer la file d’attente et, s’il en manque un, indique comment l’obtenir — par exemple avec Homebrew sur Mac ou winget sous Windows."}},{"@type":"Question","name":"Peut-on remplir une clé USB pour la voiture ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Branchez la clé, choisissez-la comme destination et lancez le téléchargement. La fois suivante, les chansons déjà sur la clé sont ignorées et seules les nouvelles sont ajoutées."}},{"@type":"Question","name":"A-t-on le droit de télécharger depuis YouTube ?","acceptedAnswer":{"@type":"Answer","text":"C’est une question entre vous et YouTube. ck-you3 ne fournit aucun contenu et ne contourne aucune protection, et il vous demande d’accepter les conditions d’utilisation de YouTube avant le premier téléchargement."}}]}
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar__inner">
+        <a class="brand" href="./" aria-label="Accueil ck-you3">
+          <img
+            class="brand__icon"
+            src="../assets/icon.png"
+            alt="Icône de l’application ck-you3"
+            width="32"
+            height="32"
+          />
+          <span class="brand__name"
+            >ck-<span class="wordmark__you"
+              >you</span
+            ><span class="wordmark__three">3</span></span
+          >
+        </a>
+        <nav class="topnav" aria-label="Navigation principale">
+          <a href="#features">Fonctionnalités</a>
+          <a href="#how-it-works">Comment ça marche</a>
+          <a href="#faq">FAQ</a>
+          <a href="#about">À propos</a>
+        </nav>
+        <a
+          class="langswitch"
+          href="../"
+          hreflang="en"
+          lang="en"
+          >English</a
+        >
+        <a class="topbar__cta" href="#download">Télécharger</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero" class="hero">
+        <div class="container hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow">Gratuit pour Mac et Windows</p>
+            <h1>Les chansons que vous avez regardées sur YouTube, en MP3 sur votre clé USB.</h1>
+            <p class="lead">Importez votre historique YouTube, cochez les morceaux qui vous intéressent : ck-you3 les enregistre en MP3 dans un dossier ou sur la clé USB qu’il détecte pour vous, en sautant chaque chanson déjà présente.</p>
+            <div
+              class="buttons"
+              role="group"
+              aria-label="Télécharger ck-you3"
+            >
+              <a
+                class="button button--primary"
+                data-platform="mac"
+                href="https://github.com/ckandrinirina/ck-you3/releases/latest/download/ck-you3-mac.dmg"
+              >
+                <svg
+                  class="button__glyph"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M16.37 1c.1 1.17-.34 2.3-1.03 3.13-.72.86-1.86 1.52-2.98 1.43-.13-1.13.42-2.3 1.06-3.03C14.14 1.66 15.37 1.04 16.37 1Zm3.52 16.3c-.5 1.16-.75 1.67-1.4 2.7-.9 1.43-2.18 3.21-3.76 3.22-1.4.01-1.77-.92-3.67-.9-1.9 0-2.3.92-3.7.9-1.58-.01-2.79-1.62-3.7-3.05C1.13 16.18.87 11.48 2.48 9 3.62 7.23 5.43 6.2 7.13 6.2c1.73 0 2.82.95 4.25.95 1.39 0 2.23-.95 4.24-.95 1.51 0 3.11.82 4.25 2.25-3.73 2.05-3.13 7.38.02 8.85Z"
+                  />
+                </svg>
+                <span class="button__text">
+                  <span class="button__label">Télécharger pour Mac</span>
+                  <span class="button__meta">macOS · installeur .dmg</span>
+                </span>
+              </a>
+              <a
+                class="button button--primary"
+                data-platform="windows"
+                href="https://github.com/ckandrinirina/ck-you3/releases/latest/download/ck-you3-windows-setup.exe"
+              >
+                <svg
+                  class="button__glyph"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M2 4.5 10 3.4v8.1H2V4.5Zm9.2-1.27L22 1.75V11.5H11.2V3.23ZM2 12.5h8v8.1l-8-1.1v-7Zm9.2 0H22v9.75l-10.8-1.48V12.5Z"
+                  />
+                </svg>
+                <span class="button__text">
+                  <span class="button__label">Télécharger pour Windows</span>
+                  <span class="button__meta">Windows · installeur .exe</span>
+                </span>
+              </a>
+            </div>
+            <p class="hero__version">
+              <a class="version-link" href="changelog/">Version actuelle : v0.3.1</a>
+            </p>
+            <p class="hero__requirements">Nécessite macOS 12 Monterey ou plus récent, ou Windows 10 ou plus récent.</p>
+            <p class="hero__note">
+              <svg class="inline-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 3 4.5 6v5.5c0 4.6 3.1 8.4 7.5 9.5 4.4-1.1 7.5-4.9 7.5-9.5V6L12 3Z"
+                />
+                <path d="m8.8 12 2.2 2.2 4.2-4.4" />
+              </svg>
+              <span>Tout se passe sur votre ordinateur. Pas de compte, aucun envoi en ligne.</span>
+            </p>
+          </div>
+
+          <div class="mockup" aria-hidden="true">
+            <div class="mockup__window">
+              <div class="mockup__chrome">
+                <span class="mockup__dot"></span
+                ><span class="mockup__dot"></span
+                ><span class="mockup__dot"></span>
+                <span class="mockup__title">ck-you3</span>
+              </div>
+              <div class="mockup__search">
+                <svg class="inline-icon" viewBox="0 0 24 24">
+                  <circle cx="11" cy="11" r="6.5" />
+                  <path d="m20 20-4.2-4.2" />
+                </svg>
+                <span>Rechercher dans l’historique</span>
+              </div>
+              <div class="mockup__tabs">
+                <span class="mockup__tab mockup__tab--active"
+                  >Tout</span
+                >
+                <span class="mockup__tab">Pas encore téléchargé</span>
+                <span class="mockup__tab">Sur votre clé</span>
+              </div>
+              <ul class="mockup__rows">
+                <li class="mockup__row">
+                  <span class="mockup__check mockup__check--on"></span>
+                  <span class="mockup__thumb" style="--hue: 172"></span>
+                  <span class="mockup__name">Session acoustique du dimanche matin</span>
+                  <span class="chip chip--success">Sur votre clé</span>
+                </li>
+                <li class="mockup__row mockup__row--selected">
+                  <span class="mockup__check mockup__check--on"></span>
+                  <span class="mockup__thumb" style="--hue: 205"></span>
+                  <span class="mockup__name">Mix lo-fi de fin de soirée</span>
+                  <span class="chip chip--accent">En attente</span>
+                </li>
+                <li class="mockup__row mockup__row--selected">
+                  <span class="mockup__check mockup__check--on"></span>
+                  <span class="mockup__thumb" style="--hue: 150"></span>
+                  <span class="mockup__name">Chansons pour la route</span>
+                  <span class="chip chip--accent">En attente</span>
+                </li>
+                <li class="mockup__row">
+                  <span class="mockup__check"></span>
+                  <span class="mockup__thumb" style="--hue: 188"></span>
+                  <span class="mockup__name">Concert sur le toit</span>
+                  <span class="chip">Pas encore téléchargé</span>
+                </li>
+              </ul>
+            </div>
+            <div class="mockup__drive">
+              <svg class="mockup__drive-icon" viewBox="0 0 24 24">
+                <rect x="7" y="2.5" width="10" height="6" rx="1" />
+                <rect x="5" y="8.5" width="14" height="13" rx="2.5" />
+                <path d="M10 5h.01M14 5h.01" />
+              </svg>
+              <div class="mockup__drive-text">
+                <span class="mockup__drive-title">Clé USB détectée</span>
+                <span class="mockup__drive-name">MUSIC_STICK</span>
+                <span class="mockup__progress"
+                  ><span class="mockup__bar"></span
+                ></span>
+                <span class="mockup__drive-status">Téléchargement 2 sur 3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="container">
+          <header class="section__head">
+            <h2>De la vidéo regardée à la chanson sur votre clé, tout est là</h2>
+            <p class="section__lead">ck-you3 fait une seule chose : mettre la musique que vous avez déjà trouvée sur YouTube sur le support que vous écoutez vraiment.</p>
+          </header>
+          <ul class="cards">
+            <li class="card">
+              <span class="card__icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"
+                  />
+                  <path d="M14 3v5h5" />
+                  <path d="M12 17v-6m-2.5 2.5L12 11l2.5 2.5" /></svg
+              ></span>
+              <h3>Importez votre historique YouTube</h3>
+              <p>Ajoutez le fichier d’historique des vidéos regardées exporté depuis Google Takeout. Importez-le de nouveau plus tard : les nouvelles vidéos s’ajoutent, sans aucun doublon.</p>
+            </li>
+            <li class="card">
+              <span class="card__icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="11" cy="11" r="6.5" />
+                  <path d="m20 20-4.2-4.2" /></svg
+              ></span>
+              <h3>Retrouvez n’importe quelle chanson en quelques secondes</h3>
+              <p>Cherchez parmi des milliers de vidéos par titre ou par chaîne, et affichez seulement ce qui n’est pas encore téléchargé ou ce qui est déjà sur votre clé.</p>
+            </li>
+            <li class="card">
+              <span class="card__icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M9 18V5l11-2v13" />
+                  <circle cx="6" cy="18" r="3" />
+                  <circle cx="17" cy="16" r="3" /></svg
+              ></span>
+              <h3>De vrais fichiers MP3</h3>
+              <p>Chaque morceau est extrait avec yt-dlp puis converti en MP3 par ffmpeg : des fichiers ordinaires, lisibles dans la voiture, sur une enceinte ou dans n’importe quel lecteur.</p>
+            </li>
+            <li class="card">
+              <span class="card__icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="7" y="2.5" width="10" height="6" rx="1" />
+                  <rect x="5" y="8.5" width="14" height="13" rx="2.5" />
+                  <path d="M10 5h.01M14 5h.01M12 12.5v5m-2-2 2 2 2-2" /></svg
+              ></span>
+              <h3>Directement sur votre clé USB</h3>
+              <p>Branchez une clé USB et l’application vous la propose comme destination. Vous pouvez aussi choisir n’importe quel dossier de votre ordinateur.</p>
+            </li>
+            <li class="card">
+              <span class="card__icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="9" />
+                  <path d="m8 12.2 2.8 2.8L16.5 9" /></svg
+              ></span>
+              <h3>Jamais deux fois la même chanson</h3>
+              <p>Les chansons déjà présentes sur la destination sont reconnues et ignorées : compléter une clé n’ajoute que les nouveautés.</p>
+            </li>
+            <li class="card">
+              <span class="card__icon"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"
+                  />
+                  <circle cx="12" cy="12" r="3" /></svg
+              ></span>
+              <h3>Repère ce que vous venez de regarder</h3>
+              <p>En option, l’application lit l’historique de Chrome, Brave, Edge ou Chromium et affiche les vidéos que vous venez de lire. Désactivé tant que vous ne l’activez pas.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="section section--tinted">
+        <div class="container">
+          <header class="section__head">
+            <h2>Comment ça marche</h2>
+            <p class="section__lead">Trois étapes, et la fois suivante, il ne reste que la dernière.</p>
+          </header>
+          <ol class="steps">
+            <li class="step">
+              <h3>Exportez votre historique</h3>
+              <p>Demandez votre historique YouTube à Google Takeout au format JSON, puis importez le fichier watch-history dans ck-you3.</p>
+            </li>
+            <li class="step">
+              <h3>Choisissez vos chansons</h3>
+              <p>Cherchez, filtrez et cochez les morceaux voulus. Ceux déjà sur votre clé sont signalés : vous ne choisissez que les nouveaux.</p>
+            </li>
+            <li class="step">
+              <h3>Branchez et téléchargez</h3>
+              <p>Choisissez un dossier ou la clé USB détectée, lancez la file d’attente et regardez les MP3 arriver un par un.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="download" class="section">
+        <div class="container">
+          <div class="download">
+            <img
+              class="download__icon"
+              src="../assets/icon.png"
+              alt="Icône de l’application ck-you3"
+              width="88"
+              height="88"
+            />
+            <h2>Télécharger ck-you3</h2>
+            <p class="download__lead">Gratuit, pour Mac et Windows. Le téléchargement provient directement de la dernière version publiée.</p>
+            <div class="buttons buttons--center">
+              <a
+                class="button button--light"
+                data-platform="mac"
+                href="https://github.com/ckandrinirina/ck-you3/releases/latest/download/ck-you3-mac.dmg"
+              >
+                <svg
+                  class="button__glyph"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M16.37 1c.1 1.17-.34 2.3-1.03 3.13-.72.86-1.86 1.52-2.98 1.43-.13-1.13.42-2.3 1.06-3.03C14.14 1.66 15.37 1.04 16.37 1Zm3.52 16.3c-.5 1.16-.75 1.67-1.4 2.7-.9 1.43-2.18 3.21-3.76 3.22-1.4.01-1.77-.92-3.67-.9-1.9 0-2.3.92-3.7.9-1.58-.01-2.79-1.62-3.7-3.05C1.13 16.18.87 11.48 2.48 9 3.62 7.23 5.43 6.2 7.13 6.2c1.73 0 2.82.95 4.25.95 1.39 0 2.23-.95 4.24-.95 1.51 0 3.11.82 4.25 2.25-3.73 2.05-3.13 7.38.02 8.85Z"
+                  />
+                </svg>
+                <span class="button__text">
+                  <span class="button__label">Télécharger pour Mac</span>
+                  <span class="button__meta">macOS · installeur .dmg</span>
+                </span>
+              </a>
+              <a
+                class="button button--light"
+                data-platform="windows"
+                href="https://github.com/ckandrinirina/ck-you3/releases/latest/download/ck-you3-windows-setup.exe"
+              >
+                <svg
+                  class="button__glyph"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M2 4.5 10 3.4v8.1H2V4.5Zm9.2-1.27L22 1.75V11.5H11.2V3.23ZM2 12.5h8v8.1l-8-1.1v-7Zm9.2 0H22v9.75l-10.8-1.48V12.5Z"
+                  />
+                </svg>
+                <span class="button__text">
+                  <span class="button__label">Télécharger pour Windows</span>
+                  <span class="button__meta">Windows · installeur .exe</span>
+                </span>
+              </a>
+            </div>
+            <p class="download__version">
+              <a class="version-link" href="changelog/">Version actuelle : v0.3.1</a>
+            </p>
+            <p class="download__note">ck-you3 utilise yt-dlp et ffmpeg. S’il en manque un, l’application vous le signale avant de commencer et vous explique comment l’installer.</p>
+            <div id="first-launch" class="firstlaunch">
+              <h3>Premier lancement</h3>
+              <p class="firstlaunch__lead">ck-you3 n’est pas encore signé avec un certificat payant d’Apple ou de Microsoft : votre système vous demande donc de confirmer une seule fois, au premier lancement.</p>
+              <div class="firstlaunch__platforms">
+                <div class="firstlaunch__platform" data-platform-help="mac">
+                  <h4>Sur Mac</h4>
+                  <ol>
+                    <li>Ouvrez le .dmg, glissez ck-you3 dans Applications et lancez-le. macOS indique qu’il ne peut pas vérifier l’app : fermez ce message.</li>
+                    <li>Ouvrez Réglages Système → Confidentialité et sécurité (sur macOS 12 : Préférences Système → Sécurité et confidentialité), descendez et cliquez sur Ouvrir quand même à côté de ck-you3.</li>
+                    <li>Confirmez quand macOS vous le redemande. Ensuite, ck-you3 s’ouvre comme n’importe quelle autre app.</li>
+                  </ol>
+                </div>
+                <div class="firstlaunch__platform" data-platform-help="windows">
+                  <h4>Sous Windows</h4>
+                  <ol>
+                    <li>Lancez l’installeur. Si un écran bleu « Windows a protégé votre ordinateur » s’affiche, cliquez sur Informations complémentaires.</li>
+                    <li>Cliquez sur Exécuter quand même. L’installation se termine et ck-you3 démarre comme n’importe quelle autre application.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section">
+        <div class="container container--narrow">
+          <header class="section__head">
+            <h2>Questions fréquentes</h2>
+          </header>
+          <div class="faq">
+            <details>
+              <summary>ck-you3 est-il gratuit ?</summary>
+              <p>Oui. Il est gratuit à télécharger et à utiliser, sans compte ni connexion.</p>
+            </details>
+            <details>
+              <summary>Mon historique quitte-t-il mon ordinateur ?</summary>
+              <p>Non. Le fichier que vous importez, la liste que vous parcourez et les MP3 que vous enregistrez restent sur votre ordinateur. Il n’y a ni compte ni serveur.</p>
+            </details>
+            <details>
+              <summary>Où récupérer mon historique YouTube ?</summary>
+              <p>Sur Google Takeout : sélectionnez YouTube, choisissez JSON comme format de l’historique et téléchargez l’archive. Le fichier à importer s’appelle watch-history.json.</p>
+            </details>
+            <details>
+              <summary>Que faut-il installer en plus ?</summary>
+              <p>yt-dlp et ffmpeg. L’application vérifie leur présence avant de lancer la file d’attente et, s’il en manque un, indique comment l’obtenir — par exemple avec Homebrew sur Mac ou winget sous Windows.</p>
+            </details>
+            <details>
+              <summary>Peut-on remplir une clé USB pour la voiture ?</summary>
+              <p>Oui. Branchez la clé, choisissez-la comme destination et lancez le téléchargement. La fois suivante, les chansons déjà sur la clé sont ignorées et seules les nouvelles sont ajoutées.</p>
+            </details>
+            <details>
+              <summary>A-t-on le droit de télécharger depuis YouTube ?</summary>
+              <p>C’est une question entre vous et YouTube. ck-you3 ne fournit aucun contenu et ne contourne aucune protection, et il vous demande d’accepter les conditions d’utilisation de YouTube avant le premier téléchargement.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container container--narrow">
+          <div class="about">
+            <h2>À propos du développeur</h2>
+            <p class="about__name">ANDRINIRINA Erick</p>
+            <p class="about__role">Développeur logiciel, créateur de ck-you3</p>
+            <p class="about__bio">ck-you3 est conçu, développé et maintenu par un seul développeur indépendant. C’est un projet personnel : aucune entreprise, aucune publicité et aucun pistage derrière lui. Questions, signalements de bugs et suggestions sont les bienvenus par e-mail.</p>
+            <ul class="about__links">
+              <li>
+                <a class="about__link" href="mailto:ckandrinirina@gmail.com"
+                  >E-mail</a
+                >
+              </li>
+              <li>
+                <a
+                  class="about__link"
+                  href="https://github.com/ckandrinirina"
+                  target="_blank"
+                  rel="me noopener"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a
+                  class="about__link"
+                  href="https://www.linkedin.com/in/ckandrinirina"
+                  target="_blank"
+                  rel="me noopener"
+                  >LinkedIn</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <img
+            class="brand__icon"
+            src="../assets/icon.png"
+            alt="Icône de l’application ck-you3"
+            width="28"
+            height="28"
+          />
+          <span class="brand__name"
+            >ck-<span class="wordmark__you"
+              >you</span
+            ><span class="wordmark__three">3</span></span
+          >
+        </div>
+        <p class="footer__tagline">Votre historique YouTube, en MP3 sur votre propre clé.</p>
+        <p class="footer__terms">Le téléchargement depuis YouTube est soumis aux conditions d’utilisation de YouTube. Ne téléchargez que des contenus que vous avez le droit de conserver.</p>
+        <p class="footer__small">100 % local. Rien de ce que vous importez ou téléchargez n’est envoyé où que ce soit.</p>
+        <p class="footer__small">YouTube est une marque de Google LLC. ck-you3 n’est ni affilié à Google ni approuvé par Google.</p>
+      </div>
+    </footer>
+  </body>
+</html>
